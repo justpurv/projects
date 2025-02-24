@@ -4,7 +4,7 @@ public class tic_tac_toe {
     static char[][] gameBoard = new char[3][3]; // assigning game board of 3 X 3
     static Scanner sc = new Scanner(System.in);
 
-    // creating a method  to initalize a game board
+    // creating a method to initalize a game board
     public static void initalizeBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -12,7 +12,7 @@ public class tic_tac_toe {
             }
         }
     }
-
+    
     // creating a method to print the board
     public static void printBoard() {
         System.out.println("\n   0   1   2");
@@ -20,10 +20,12 @@ public class tic_tac_toe {
             System.out.print(i + " ");
             for (int j = 0; j < 3; j++) {
                 System.out.print(" " + gameBoard[i][j] + " ");
-                if (j < 2) System.out.print("|");
+                if (j < 2)
+                    System.out.print("|");
             }
             System.out.println();
-            if (i < 2) System.out.println("  ---+---+---");
+            if (i < 2)
+                System.out.println("  ---+---+---");
         }
         System.out.println();
     }
@@ -43,10 +45,8 @@ public class tic_tac_toe {
                     && row < 3
                     && col >= 0
                     && col < 3
-                    && gameBoard[row][col]
-                            == '-') { // this  will make sure that player is entering a valid move
-                gameBoard[row][col] =
-                        player; // if move is right it will place the relative x or o at that move
+                    && gameBoard[row][col] == '-') { // this will make sure that player is entering a valid move
+                gameBoard[row][col] = player; // if move is right it will place the relative x or o at that move
                 break;
             } else {
                 System.out.println("invalid move try again ");
@@ -59,14 +59,12 @@ public class tic_tac_toe {
         for (int i = 0; i < 3; i++) {
             if (gameBoard[i][0] == player
                     && gameBoard[i][1] == player
-                    && gameBoard[i][2]
-                            == player) // this will check the row if row is making a winning line or
+                    && gameBoard[i][2] == player) // this will check the row if row is making a winning line or
                 // not
                 return true;
             if (gameBoard[0][i] == player
                     && gameBoard[1][i] == player
-                    && gameBoard[2][i]
-                            == player) // this will check the column if column is making a winning
+                    && gameBoard[2][i] == player) // this will check the column if column is making a winning
                 // line or not
                 return true;
         }
@@ -84,11 +82,13 @@ public class tic_tac_toe {
         return false;
     }
 
-    // this method will check if the board is full and if it is then game will be draw
+    // this method will check if the board is full and if it is then game will be
+    // draw
     public static boolean isFull() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (gameBoard[i][j] == '-') return false;
+                if (gameBoard[i][j] == '-')
+                    return false;
             }
         }
         return true;
@@ -113,10 +113,9 @@ public class tic_tac_toe {
                 System.out.println("it's draw");
                 break;
             }
-            currentPlayer =
-                    (currentPlayer == 'X')
-                            ? 'O'
-                            : 'X'; // this will make sure if last player  was x then second player
+            currentPlayer = (currentPlayer == 'X')
+                    ? 'O'
+                    : 'X'; // this will make sure if last player was x then second player
             // will be o and visa versa
         }
     }
